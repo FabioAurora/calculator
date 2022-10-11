@@ -1,0 +1,88 @@
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+.main {
+    position: relative;
+    max-width: 900px;
+   
+}
+
+.ui-container {
+    margin-top: 1.3rem;
+    
+}
+
+.ui-interface {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 130px;
+    left: 120px;
+}
+
+.display {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #888;
+    z-index: 2;
+    background-color: aqua;
+}
+
+.outer-circle {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(1, 111, 188, 1) 50%,
+    rgba(1, 111, 188, .1) 74%);
+}
+
+.cross1,
+.cross2 {
+    position: absolute;
+    background-color: rgb(156, 130, 145);
+    width: 280px;
+    height: 8px;
+}
+.cross1 {
+    transform: rotate(45deg);
+}
+
+.cross2 {
+    transform: rotate(-45deg);
+}
+
+.big-inner-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #000;
+}
+
+.medium-inner-circle {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #fff;
+}
