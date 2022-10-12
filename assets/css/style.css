@@ -122,6 +122,15 @@ img {
     animation: rotate 3s infinite linear;
 }
 
+.small-circle {
+    position: absolute;
+    top: -32px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    animation: rotate 3s infinite linear;
+}
+
 @keyframes rotate {
     from {
         -webkit-transform: rotate(0deg);
