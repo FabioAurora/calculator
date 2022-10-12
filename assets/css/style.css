@@ -36,17 +36,18 @@ img {
 }
 
 .display {
-    width: 100px;
+    width: 111px;
     height: 60px;
     border: 2px solid #888;
     z-index: 2;
-    background-color: aqua;
+    background-color: #053544;
+    border-radius:15px;
 }
 
 .outer-circle {
     position: absolute;
-    width: 320px;
-    height: 320px;
+    width: 340px;
+    height: 340px;
     border-radius: 50%;
     background: linear-gradient(to bottom, rgba(8, 136, 227, 0.8),
     rgba(1, 111, 188, .1) 94%);
@@ -56,7 +57,7 @@ img {
 .cross2 {
     position: absolute;
     background-color: rgb(156, 130, 145);
-    width: 320px;
+    width: 340px;
     height: 12px;
 }
 .cross1 {
@@ -69,8 +70,8 @@ img {
 
 .outer-transparent-circle {
     position: absolute;
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     z-index: 1;
     background-color: #000;
@@ -78,8 +79,8 @@ img {
 
 .medium-inner-circle {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     z-index: 1;
     background: linear-gradient(to bottom, rgba(7, 108, 190, 0.7) 60%,
@@ -88,8 +89,8 @@ img {
 
 .small-inner-circle {
     position: absolute;
-    width: 170px;
-    height: 170px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     z-index: 1;
     background: linear-gradient(to bottom, rgba(8, 136, 227, 0.8) 10%,
@@ -98,8 +99,8 @@ img {
 
 .smallest-inner-circle {
     position: absolute;
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     z-index: 1;
     background-color: #000;
@@ -107,10 +108,32 @@ img {
 
 .inner-transparent-circle {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 2px solid #888;
+    border: 3px solid #888;
     z-index: 1;
-    background-color: #fff;
+    
+}
+
+.inner-display-border-circle {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid #23FCFE;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    z-index: 1;
+    animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
