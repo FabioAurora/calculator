@@ -16,9 +16,19 @@ img {
     width: 100%;
 }
 
+button {
+    border: none;
+    color: #fff;
+}
+
 .main {
-    position: relative;
+    
     max-width: 900px;
+    background-image: url('../images/hud-frame-vertical.png');
+}
+
+.ui-container {
+    
 }
 
 .ui-interface {
