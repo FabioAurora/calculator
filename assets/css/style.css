@@ -41,7 +41,7 @@ button {
     align-items: center;
     margin: 0 auto;
     justify-content: space-around;
-    height: 100vh;
+    min-height: 100vh;
     max-width: 500px;
 }
 
@@ -175,15 +175,13 @@ button {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    border: 2px solid white;
-    width: 80%;
     padding: 1rem;
-    background: #000B23;
+    background: rgb(0, 11, 35);
     box-shadow: 0 8px 62px 0 rgba(56, 63, 156, 0.37);
     backdrop-filter: blur( 18.5px );
     -webkit-backdrop-filter: blur( 18.5px );
     border-radius: 10px;
-    border: 1px solid rgba(35, 252, 254, .3);
+    width: 350px;
 }
 
 
