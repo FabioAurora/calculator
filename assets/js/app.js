@@ -7,7 +7,9 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
 
-equalsButton.addEventListener('click', calculate);
+equalsButton.addEventListener('click', () => {
+    calculate();
+});
 clearButton.addEventListener('click', clearAll);
 
 let firstNumber = '';
@@ -109,6 +111,7 @@ function calculate() {
         operate(currentOperator, firstNumber, secondNumber)
         );
     calculationDisplay.textContent = `${firstNumber} ${currentOperator} ${secondNumber} =`;
+    currentOperator = null;
 }
 
 function roundResult(number) {
