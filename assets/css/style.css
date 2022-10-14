@@ -12,7 +12,6 @@
     --red: transparent 29.5%, rgba(75, 130, 212, 0.9) 50%;
     --green: transparent 29.5%, rgba(76, 138, 73, 0.9) 50%;
 
-    --angle: 45deg;
 
 }
 
@@ -55,7 +54,7 @@ button {
 }
 
 .display {
-    width: 175px;
+    width: 200px;
     height: 60px;
     border: 2px solid #001;
     z-index: 3;
@@ -65,7 +64,7 @@ button {
 
 .display-shadow {
     position: absolute;
-    width: 180px;
+    width: 215px;
     height: 70px;
     background-color: #001;
     z-index: 2;
@@ -107,43 +106,12 @@ button {
 
 .medium-inner-circle {
     position: absolute;
-    width: 190px;
-    height: 190px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     z-index: 1;
-    --border-size: .3rem;
-    border: var(--border-size) dotted rgba(0, 255, 0, .7);
-    animation: rotateLeft 15s infinite linear;
-}
-
-.medium-inner-circle2 {
-    position: absolute;
-    width: 202px;
-    height: 202px;
-    border-radius: 50%;
-    z-index: 1;
-    --border-size: .3rem;
-    border: var(--border-size) dashed rgba(0, 255, 0, .7);
-    animation: rotate 15s infinite linear;
-}
-.medium-inner-circle3 {
-    position: absolute;
-    width: 215px;
-    height: 215px;
-    border-radius: 50%;
-    z-index: 1;
-    --border-size: .3rem;
-    border: var(--border-size) dotted lime;
-    animation: rotateLeft 15s infinite linear;
-}
-.teste {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 5px solid #001;
-    z-index: 3;
-    animation: circleLeft 7s infinite linear;
+    background: linear-gradient(to bottom, rgba(7, 108, 190, 0.7) 60%,
+    rgba(4, 100, 169, 0.2));
 }
 
 .small-inner-circle {
@@ -218,12 +186,14 @@ button {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     padding: 1rem;
-    background: rgb(0, 11, 35);
     box-shadow: 0 8px 62px 0 rgba(56, 63, 156, 0.37);
     backdrop-filter: blur( 18.5px );
     -webkit-backdrop-filter: blur( 18.5px );
     border-radius: 10px;
     width: 350px;
+    position: relative;
+    top: -140px;
+    z-index: 10;
 }
 
 
@@ -312,18 +282,5 @@ button {
     }
     to {
         -webkit-transform: rotate(-360deg);
-    }
-}
-
-@keyframes circleLeft {
-    from {
-        -webkit-transform: rotateZ(0deg)
-                           translateX(100px)
-                            ;
-    }
-    to {
-        -webkit-transform: rotateZ(-360deg)
-                translateX(100px)
-                ;
     }
 }
