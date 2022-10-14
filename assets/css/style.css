@@ -24,21 +24,24 @@ button {
 .main {
     
     max-width: 900px;
-    background-image: url('../images/hud-frame-vertical.png');
+    /* background-image: url('../images/hud-frame-vertical.png'); */
 }
 
 .ui-container {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 .ui-interface {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 170px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    width: 340px;
+    height: 340px;
+    position: relative;
 }
 
 .display {
@@ -136,34 +139,34 @@ button {
 
 .small-circle {
     position: absolute;
-    top: -28px;
-    left: 32px;
+    top: 16px;
+    left: 45px;
     width: 25px;
     height: 25px;
-    z-index: 1;
+    background-image: url('../images/roda.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     animation: rotate 3s infinite linear;
 }
 
 .small-circle2 {
     position: absolute;
-    top: -28px;
-    left: 56px;
+    top: 16px;
+    left: 69px;
     width: 25px;
     height: 25px;
-    z-index: 1;
-    animation: rotateLeft 2s infinite linear;
+    background-image: url('../images/roda1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: rotateLeft 3s infinite linear;
 }
 
 .keypad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    position: absolute;
-    bottom: 110px;
     border: 2px solid white;
     width: 80%;
-    left: 50%;
-    transform: translate(-50%, 0);
     padding: 1rem;
     background: #000B23;
     box-shadow: 0 8px 62px 0 rgba(56, 63, 156, 0.37);
