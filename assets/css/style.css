@@ -8,7 +8,8 @@
 }
 
 body {
-    background-color: #000;
+    background-color: #001;
+    color: #fff;
 }
 
 img {
@@ -26,13 +27,14 @@ img {
     align-items: center;
     position: absolute;
     top: 170px;
-    left: 130px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .display {
     width: 120px;
     height: 60px;
-    border: 2px solid #888;
+    border: 2px solid #444;
     z-index: 2;
     background-color: #053544;
     border-radius:15px;
@@ -68,7 +70,7 @@ img {
     height: 240px;
     border-radius: 50%;
     z-index: 1;
-    background-color: #000;
+    background-color: #001;
 }
 
 .medium-inner-circle {
@@ -97,7 +99,7 @@ img {
     height: 150px;
     border-radius: 50%;
     z-index: 1;
-    background-color: #000;
+    background-color: #001;
 }
 
 .inner-transparent-circle {
@@ -139,8 +141,50 @@ img {
     width: 25px;
     height: 25px;
     z-index: 1;
-    animation: rotateLeft 3s infinite linear;
+    animation: rotateLeft 2s infinite linear;
 }
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: absolute;
+    bottom: 110px;
+    border: 2px solid white;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 1rem;
+    background: #000B23;
+    box-shadow: 0 8px 62px 0 rgba(56, 63, 156, 0.37);
+    backdrop-filter: blur( 18.5px );
+    -webkit-backdrop-filter: blur( 18.5px );
+    border-radius: 10px;
+    border: 1px solid rgba(35, 252, 254, .3);
+}
+
+.key1 {
+    --grad: transparent 29.5%, rgba(35, 252, 254, .3) 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+    linear-gradient(to top right   ,var(--grad)) top    right,
+    linear-gradient(to top left    ,var(--grad)) top    left,
+    linear-gradient(to bottom right,var(--grad)) bottom right,
+    linear-gradient(to bottom left ,var(--grad)) bottom left, rgba(35, 252, 254, 0.03);
+    background-size: 15px 19px;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    /* border: 1px solid rgba(35, 252, 254, .3); */
+    width: 50px;
+    height: 50px;
+
+    clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0% calc(100% - 18px), 0% 18px);
+}
+
+
+
 
 @keyframes rotate {
     from {
