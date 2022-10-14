@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --grad: transparent 29.5%, rgba(35, 252, 254, .3) 50%;
+    --red: transparent 29.5%, rgba(75, 130, 212, 0.9) 50%;
+    --green: transparent 29.5%, rgba(76, 138, 73, 0.9) 50%;
+}
+
 body {
     background-color: #001;
     color: #fff;
@@ -18,21 +24,25 @@ img {
 
 button {
     border: none;
-    color: #fff;
+    color: rgba(255, 255, 255, .6);
+    font-size: 1.2rem;
 }
 
 .main {
-    
     max-width: 900px;
-    /* background-image: url('../images/hud-frame-vertical.png'); */
+    background-image: url('../images/hud-frame-vertical.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .ui-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
     justify-content: space-around;
     height: 100vh;
+    max-width: 500px;
 }
 
 .ui-interface {
@@ -176,8 +186,11 @@ button {
     border: 1px solid rgba(35, 252, 254, .3);
 }
 
-.key1 {
-    --grad: transparent 29.5%, rgba(35, 252, 254, .3) 50%;
+
+
+
+
+.keys {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,15 +201,60 @@ button {
     linear-gradient(to bottom left ,var(--grad)) bottom left, rgba(35, 252, 254, 0.03);
     background-size: 15px 19px;
     background-repeat: no-repeat;
-    background-origin: border-box;
-    /* border: 1px solid rgba(35, 252, 254, .3); */
     width: 50px;
     height: 50px;
 
     clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0% calc(100% - 18px), 0% 18px);
 }
+.keys:hover {
+    background:
+    linear-gradient(to top right   ,var(--green)) top    right,
+    linear-gradient(to top left    ,var(--red)) top    left,
+    linear-gradient(to bottom right,var(--red)) bottom right,
+    linear-gradient(to bottom left ,var(--green)) bottom left, rgba(35, 252, 254, 0.03);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
 
+.btn0 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 130px;
+}
+.btnEqual {
+    grid-row: 4/ span 2;
+    grid-column: 4;
+    height: 116px;
+}
 
+.btn-operator-clr {
+    background:
+    linear-gradient(to top right   ,var(--red)) top    right,
+    linear-gradient(to top left    ,var(--red)) top    left,
+    linear-gradient(to bottom right,var(--red)) bottom right,
+    linear-gradient(to bottom left ,var(--red)) bottom left, rgba(54, 102, 197, 0.1);
+    background-size: 15px 19px;
+    background-repeat: no-repeat;
+    color: rgba(75, 130, 212, 0.9);
+}
+
+.btn-green {
+    color: green;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+    .btn-green:hover,
+    .btn-operator-clr:hover {
+        background:
+    linear-gradient(to top right   ,var(--green)) top    right,
+    linear-gradient(to top left    ,var(--green)) top    left,
+    linear-gradient(to bottom right,var(--green)) bottom right,
+    linear-gradient(to bottom left ,var(--green)) bottom left, rgba(106, 71, 186, 0.1);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    }
 
 
 @keyframes rotate {
