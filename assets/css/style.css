@@ -192,6 +192,7 @@ button {
     border-radius: 10px;
     width: 350px;
     position: relative;
+    top: -60px;
     z-index: 10;
 }
 
