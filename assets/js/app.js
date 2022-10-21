@@ -6,11 +6,14 @@ const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
+const BACKSPACE_BUTTON = document.querySelector('#backspaceBtn');
 
 equalsButton.addEventListener('click', () => {
     calculate();
 });
 clearButton.addEventListener('click', clearAll);
+
+BACKSPACE_BUTTON.addEventListener('click', clearLastNumber);
 
 let firstNumber = '';
 let secondNumber = '';
@@ -23,6 +26,12 @@ function clearAll() {
     currentNumber.textContent = '0';
     calculationDisplay.textContent = '';
     currentOperator = null;
+}
+
+function clearLastNumber() {
+    if(secondNumber !== '') return;
+    currentNumber.textContent = currentNumber.textContent.slice(0, -1);
+    console.log(currentNumber.textContent);
 }
 
 /* calculator project */
@@ -86,8 +95,8 @@ operatorButtons.forEach(button => button.addEventListener('click', () => setOper
 function addNumber(number) {
     if(currentNumber.textContent === '0' || shouldResetScreen)
     reset();
-    currentNumber.textContent += number;
-
+   let str = currentNumber.textContent += number
+   currentNumber.textContent = addComma(str)
 }
 
 function setOperator(operator) {
@@ -95,6 +104,7 @@ function setOperator(operator) {
         calculate();
     }
     firstNumber = currentNumber.textContent;
+    firstNumber = firstNumber.split(',').join('');
     currentOperator = operator;
     calculationDisplay.textContent = `${firstNumber} ${currentOperator}`;
     shouldResetScreen = true;
@@ -107,9 +117,10 @@ function calculate() {
         return;
     }
     secondNumber = currentNumber.textContent;
+    secondNumber = secondNumber.split(',').join('');
     currentNumber.textContent = roundResult(
         operate(currentOperator, firstNumber, secondNumber)
-        );
+        ).toLocaleString();
     calculationDisplay.textContent = `${firstNumber} ${currentOperator} ${secondNumber} =`;
     currentOperator = null;
 }
@@ -122,3 +133,4 @@ function reset() {
     currentNumber.textContent = '';
     shouldResetScreen = false;
 }
+
