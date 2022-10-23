@@ -19,6 +19,7 @@ let firstNumber = '';
 let secondNumber = '';
 let currentOperator = null;
 let shouldResetScreen = false;
+let resetCalculation = false;
 
 function clearAll() {
     firstNumber = '';
@@ -29,7 +30,11 @@ function clearAll() {
 }
 
 function clearLastNumber() {
-    if(secondNumber !== '') return;
+    if(secondNumber !== ''){
+        calculationDisplay.textContent = '';
+        shouldResetScreen = true;
+        return;
+    }
     currentNumber.textContent = currentNumber.textContent.slice(0, -1);
     console.log(currentNumber.textContent);
 }
@@ -88,15 +93,23 @@ function operate(operator, a, b) {
 
 
 /* function that populate the display when clicking the numbers */
-numberButtons.forEach(button => button.addEventListener('click', () => addNumber(button.textContent)));
+numberButtons.forEach(button => button.addEventListener('click', () => addNumber(Number(button.textContent))));
 
 operatorButtons.forEach(button => button.addEventListener('click', () => setOperator(button.textContent)));
 
 function addNumber(number) {
-    if(currentNumber.textContent === '0' || shouldResetScreen)
+    if(currentNumber.textContent === '0' || shouldResetScreen);
     reset();
-   let str = currentNumber.textContent += number
-   currentNumber.textContent = addComma(str)
+   let numberString = currentNumber.textContent += number;
+   if(!currentNumber.textContent.includes(',')) {
+    currentNumber.textContent = Number(currentNumber.textContent).toLocaleString();
+   }else if(isNaN(currentNumber.textContent)) {
+    let result = numberString.replaceAll(',', '');
+    return currentNumber.textContent = Number(result).toLocaleString();
+   }
+   if(resetCalculation) {
+    resetCalc();
+   }
 }
 
 function setOperator(operator) {
@@ -123,6 +136,8 @@ function calculate() {
         ).toLocaleString();
     calculationDisplay.textContent = `${firstNumber} ${currentOperator} ${secondNumber} =`;
     currentOperator = null;
+    shouldResetScreen = true;
+    resetCalculation = true;
 }
 
 function roundResult(number) {
@@ -134,3 +149,7 @@ function reset() {
     shouldResetScreen = false;
 }
 
+function resetCalc() {
+    calculationDisplay.textContent = '';
+    resetCalculation = false;
+}
