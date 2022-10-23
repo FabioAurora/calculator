@@ -98,7 +98,7 @@ numberButtons.forEach(button => button.addEventListener('click', () => addNumber
 operatorButtons.forEach(button => button.addEventListener('click', () => setOperator(button.textContent)));
 
 function addNumber(number) {
-    if(currentNumber.textContent === '0' || shouldResetScreen);
+    if(currentNumber.textContent === '0' || shouldResetScreen)
     reset();
    let numberString = currentNumber.textContent += number;
    if(!currentNumber.textContent.includes(',')) {
