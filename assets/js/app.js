@@ -39,7 +39,6 @@ function clearLastNumber() {
         return;
     }
     currentNumber.textContent = currentNumber.textContent.slice(0, -1);
-    console.log(currentNumber.textContent);
 }
 
 function setDecimal() {
@@ -111,16 +110,20 @@ operatorButtons.forEach(button => button.addEventListener('click', () => setOper
 function addNumber(number) {
     if(currentNumber.textContent === '0' || shouldResetScreen)
     reset();
-   let numberString = currentNumber.textContent += number;
-   if(!currentNumber.textContent.includes(',')) {
-    currentNumber.textContent = Number(currentNumber.textContent).toLocaleString();
-   }else if(isNaN(currentNumber.textContent)) {
-    let result = numberString.replaceAll(',', '');
-    return currentNumber.textContent = Number(result).toLocaleString();
-   }
-   if(resetCalculation) {
-    resetCalc();
-   }
+    if(currentNumber.textContent.length >= 16) {
+        currentNumber.textContent += '';
+    }else {
+        let numberString = currentNumber.textContent += number;
+        if(!currentNumber.textContent.includes(',')) {
+         currentNumber.textContent = Number(currentNumber.textContent).toLocaleString();
+        }else if(isNaN(currentNumber.textContent)) {
+         let result = numberString.replaceAll(',', '');
+         return currentNumber.textContent = Number(result).toLocaleString();
+        }
+        if(resetCalculation) {
+         resetCalc();
+        }
+    }
 }
 
 function setOperator(operator) {
@@ -164,3 +167,35 @@ function resetCalc() {
     calculationDisplay.textContent = '';
     resetCalculation = false;
 }
+
+
+/*  Keyboard support*/
+
+function getKeyboardInput(event) {
+    const KEYS = event.key
+    switch(true) {
+        case KEYS >= 0 && KEYS <= 9:
+            addNumber(KEYS);
+            break;
+        case KEYS === 'Backspace':
+            clearLastNumber();
+            break;
+        case KEYS === 'Delete':
+            clearAll();
+            break;
+        case KEYS === '.':
+            setDecimal();
+                break;
+        case KEYS === '=':
+        case KEYS === 'Enter':
+            calculate();
+            break;
+        case KEYS === '/':
+        case KEYS === '*':
+        case KEYS === '-':
+        case KEYS === '+':
+            setOperator(KEYS);
+    }
+}
+
+window.addEventListener('keydown', getKeyboardInput);
