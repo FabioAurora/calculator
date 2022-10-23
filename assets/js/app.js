@@ -7,13 +7,17 @@ const operatorButtons = document.querySelectorAll('[data-operator]');
 const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
 const BACKSPACE_BUTTON = document.querySelector('#backspaceBtn');
+const DECIMAL_BUTTON = document.querySelector('#decimalBtn');
 
 equalsButton.addEventListener('click', () => {
     calculate();
+    resetCalculation = true;
 });
 clearButton.addEventListener('click', clearAll);
 
 BACKSPACE_BUTTON.addEventListener('click', clearLastNumber);
+
+DECIMAL_BUTTON.addEventListener('click', setDecimals);
 
 let firstNumber = '';
 let secondNumber = '';
@@ -37,6 +41,15 @@ function clearLastNumber() {
     }
     currentNumber.textContent = currentNumber.textContent.slice(0, -1);
     console.log(currentNumber.textContent);
+}
+
+function setDecimals() {
+    if(shouldResetScreen) reset();
+    if(currentNumber.textContent === '') {
+        currentNumber.textContent = '0';
+    }else if(currentNumber.textContent.includes('.')) return;
+
+    currentNumber.textContent += '.';
 }
 
 /* calculator project */
@@ -93,7 +106,13 @@ function operate(operator, a, b) {
 
 
 /* function that populate the display when clicking the numbers */
-numberButtons.forEach(button => button.addEventListener('click', () => addNumber(Number(button.textContent))));
+numberButtons.forEach(button => button.addEventListener('click', () => {
+    if(currentNumber.textContent.length > 16) {
+        addNumber('');
+    }else {
+    addNumber(Number(button.textContent));
+    }
+}));
 
 operatorButtons.forEach(button => button.addEventListener('click', () => setOperator(button.textContent)));
 
@@ -137,7 +156,6 @@ function calculate() {
     calculationDisplay.textContent = `${firstNumber} ${currentOperator} ${secondNumber} =`;
     currentOperator = null;
     shouldResetScreen = true;
-    resetCalculation = true;
 }
 
 function roundResult(number) {
