@@ -8,6 +8,7 @@ const equalsButton = document.querySelector('#equalsButton');
 const clearButton = document.querySelector('#clearButton');
 const BACKSPACE_BUTTON = document.querySelector('#backspaceBtn');
 const DECIMAL_BUTTON =  document.querySelector('#decimalBtn');
+const OUTER_CIRCLE = document.querySelector('#outerCircle');
 
 equalsButton.addEventListener('click', () => {
     calculate();
@@ -30,6 +31,7 @@ function clearAll() {
     currentNumber.textContent = '0';
     calculationDisplay.textContent = '';
     currentOperator = null;
+    OUTER_CIRCLE.classList.remove('not-compute');
 }
 
 function clearLastNumber() {
@@ -123,6 +125,7 @@ function addNumber(number) {
         if(resetCalculation) {
          resetCalc();
         }
+        OUTER_CIRCLE.classList.remove('not-compute');
     }
 }
 
@@ -142,6 +145,7 @@ function calculate() {
     if(currentOperator === '/' && currentNumber.textContent === '0') {
         let audio = new Audio('assets/not-compute.mp3');
         audio.play();
+        OUTER_CIRCLE.classList.add('not-compute');
         currentNumber.textContent = `o.O`;
         reset()
     }
@@ -197,6 +201,10 @@ function getKeyboardInput(event) {
         case KEYS === '-':
         case KEYS === '+':
             setOperator(KEYS);
+            break;
+        default:
+            OUTER_CIRCLE.classList.remove('not-compute');
+            break;
     }
 }
 

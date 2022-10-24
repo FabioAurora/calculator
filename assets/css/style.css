@@ -106,17 +106,30 @@ button {
     border-radius: 50%;
     background: linear-gradient(to bottom, rgba(8, 136, 227, 0.8),
     rgba(1, 111, 188, .1) 94%);
+
 }
-.outer-circle:hover{
+/* .outer-circle:hover{
     box-shadow:
-    inset 0 0 50px #fff,      /* inner white */
-    inset 20px 0 80px yellow,   /* inner left magenta short */
-    inset -20px 0 80px #0ff,  /* inner right cyan short */
-    inset 20px 0 300px blue,  /* inner left magenta broad */
-    inset -20px 0 300px #0ff, /* inner right cyan broad */
-    0 0 50px #fff,            /* outer white */
-    -10px 0 80px #f0f,        /* outer left magenta */
-    10px 0 80px #0ff; 
+    inset 0 0 50px #fff,
+    inset 20px 0 80px yellow,
+    inset -20px 0 80px #0ff,
+    inset 20px 0 300px blue,
+    inset -20px 0 300px #0ff,
+    0 0 50px #fff,
+    -10px 0 80px #f0f,
+    10px 0 80px #0ff;
+} */
+
+.not-compute {
+    box-shadow:
+    inset 0 0 50px #fff,
+    inset 20px 0 80px yellow,
+    inset -20px 0 80px rgb(220, 151, 151),
+    inset 20px 0 300px rgb(195, 64, 64),
+    inset -20px 0 300px rgb(236, 6, 6),
+    0 0 50px #fff,
+    -10px 0 80px rgb(251, 4, 4),
+    10px 0 80px rgb(253, 2, 2);
 }
 
 .cross1,
