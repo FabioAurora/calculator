@@ -117,7 +117,7 @@ operatorButtons.forEach(button => button.addEventListener('click', () => setOper
 function addNumber(number) {
     if(currentNumber.textContent === '0' || shouldResetScreen)
     reset();
-    if(currentNumber.textContent.length >= 16) {
+    if(currentNumber.textContent.length >= 15) {
         currentNumber.textContent += '';
     }else {
         let numberString = currentNumber.textContent += number;
@@ -160,9 +160,20 @@ function calculate() {
     }
     secondNumber = currentNumber.textContent;
     secondNumber = secondNumber.split(',').join('');
-    currentNumber.textContent = roundResult(
-        operate(currentOperator, firstNumber, secondNumber)
-        ).toLocaleString();
+    //calculation result
+    //round the result
+    // using if statement to check for big number and change it with exponential
+    //using toLocaleString to place comma (",") if number is 1000+
+    if(firstNumber.length >= 12 && secondNumber.length >= 12) {
+        currentNumber.textContent = roundResult(
+            operate(currentOperator, firstNumber, secondNumber)
+            ).toExponential(2).toLocaleString();
+    }else {
+        currentNumber.textContent = roundResult(
+            operate(currentOperator, firstNumber, secondNumber)
+            ).toLocaleString();
+    }
+    
     calculationDisplay.textContent = `${firstNumber} ${currentOperator} ${secondNumber} =`;
     currentOperator = null;
     shouldResetScreen = true;

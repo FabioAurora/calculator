@@ -11,16 +11,35 @@
     --grad: transparent 29.5%, rgba(35, 252, 254, .3) 50%;
     --blue: transparent 29.5%, rgba(75, 130, 212, 0.9) 50%;
     --green: transparent 29.5%, rgba(76, 138, 73, 0.9) 50%;
+    --outerCircle-grad: linear-gradient(to bottom, rgba(8, 136, 227, 0.8),
+    rgba(1, 111, 188, .1) 94%);
+    --mediumCircle-grad: linear-gradient(to bottom, rgba(7, 108, 190, 0.7) 60%,
+    rgba(4, 100, 169, 0.2));
+    --smallCircle-grad: linear-gradient(to bottom, rgba(8, 136, 227, 0.8) 10%,
+    rgba(1, 9, 15, 0.8));
+
+
+    --red-shadow: inset 0 0 50px #fff,
+    inset 20px 0 80px yellow,
+    inset -20px 0 80px rgb(220, 151, 151),
+    inset 20px 0 300px rgb(195, 64, 64),
+    inset -20px 0 300px rgb(236, 6, 6),
+    0 0 50px #fff,
+    -10px 0 80px rgb(251, 4, 4),
+    10px 0 80px rgb(253, 2, 2);
 
     --primary-dark: #001;
     --keypad-shadow: rgba(56, 63, 156, 0.37);
+    --numbers-clr: rgba(255, 255, 255, .6);
+    --calc-numbers-clr: rgba(20, 25, 25, .8);
+    --cross-clr: rgb(156, 130, 145);
 
 
 }
 
 body {
     background-color: var(--primary-dark);
-    color: #001;
+    color: var(--primary-dark);
     font: 900;
 }
 
@@ -30,12 +49,12 @@ img {
 
 button {
     border: none;
-    color: rgba(255, 255, 255, .6);
+    color: var(--numbers-clr);
     font-size: 1.2rem;
 }
 
 .main {
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -43,14 +62,15 @@ button {
     font-size: 1.6rem;
 }
 
-.ui-container {
+.ui-container,
+.display {
     display: flex;
     flex-direction: column;
+}
+
+.ui-container {
     align-items: center;
-    margin: 0 auto;
     justify-content: space-around;
-    /* min-height: 100vh; */
-    max-width: 500px;
 }
 
 .ui-interface {
@@ -63,8 +83,6 @@ button {
 }
 
 .display {
-    display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     gap: .5rem;
@@ -72,8 +90,7 @@ button {
     height: 60px;
     border: 2px solid var(--primary-dark);
     z-index: 3;
-    background-color: #053544;
-    border-radius:15px;
+    border-radius: 15px;
     padding-right: .7rem;
     animation: neon 2s 2.8s forwards;
 }
@@ -84,58 +101,50 @@ button {
     margin-bottom: 4px
 }
 .small-calc {
-    color: rgba(20, 25, 25, .8);
+    color: var(--calc-numbers-clr);
     font-size: .7rem;
     height: 25px;
     margin-top: 4px;
 }
 
-.display-shadow {
+.display-shadow,
+.outer-circle,
+.cross1,
+.cross2,
+.outer-transparent-circle,
+.medium-inner-circle,
+.small-inner-circle,
+.smallest-inner-circle,
+.inner-transparent-circle,
+.inner-display-border-circle,
+.small-circle,
+.small-circle2 {
     position: absolute;
+}
+
+.display-shadow {
     width: 215px;
     height: 70px;
-    background-color: #001;
+    background-color: var(--primary-dark);
     z-index: 2;
     border-radius: 20px;
 }
 
 .outer-circle {
-    position: absolute;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: linear-gradient(to bottom, rgba(8, 136, 227, 0.8),
-    rgba(1, 111, 188, .1) 94%);
+    background: var(--outerCircle-grad);
 
 }
-/* .outer-circle:hover{
-    box-shadow:
-    inset 0 0 50px #fff,
-    inset 20px 0 80px yellow,
-    inset -20px 0 80px #0ff,
-    inset 20px 0 300px blue,
-    inset -20px 0 300px #0ff,
-    0 0 50px #fff,
-    -10px 0 80px #f0f,
-    10px 0 80px #0ff;
-} */
 
 .not-compute {
-    box-shadow:
-    inset 0 0 50px #fff,
-    inset 20px 0 80px yellow,
-    inset -20px 0 80px rgb(220, 151, 151),
-    inset 20px 0 300px rgb(195, 64, 64),
-    inset -20px 0 300px rgb(236, 6, 6),
-    0 0 50px #fff,
-    -10px 0 80px rgb(251, 4, 4),
-    10px 0 80px rgb(253, 2, 2);
+    box-shadow:var(--red-shadow)
 }
 
 .cross1,
 .cross2 {
-    position: absolute;
-    background-color: rgb(156, 130, 145);
+    background-color: var(--cross-clr);
     width: 300px;
     height: 12px;
 }
@@ -148,90 +157,75 @@ button {
 }
 
 .outer-transparent-circle {
-    position: absolute;
     width: 225px;
     height: 225px;
-    border-radius: 50%;
-    z-index: 1;
-    background-color: #001;
-}
-
-
-.medium-inner-circle {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    z-index: 1;
-    background: linear-gradient(to bottom, rgba(7, 108, 190, 0.7) 60%,
-    rgba(4, 100, 169, 0.2));
-}
-
-.small-inner-circle {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    z-index: 1;
-    background: linear-gradient(to bottom, rgba(8, 136, 227, 0.8) 10%,
-    rgba(1, 9, 15, 0.8));
-}
-
-.smallest-inner-circle {
-    position: absolute;
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
     z-index: 1;
     background-color: var(--primary-dark);
 }
 
-.inner-transparent-circle {
-    position: absolute;
-    width: 140px;
-    height: 140px;
+.medium-inner-circle,
+.small-inner-circle,
+.smallest-inner-circle,
+.inner-transparent-circle,
+.inner-display-border-circle {
     border-radius: 50%;
-    border: 3px solid #888;
     z-index: 1;
 }
 
+.medium-inner-circle {
+    width: 200px;
+    height: 200px;
+    background: var(--mediumCircle-grad);
+}
+
+.small-inner-circle {
+    width: 180px;
+    height: 180px;
+    background: var(--smallCircle-grad);
+}
+
+.smallest-inner-circle {
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-dark);
+}
+
+.inner-transparent-circle {
+    width: 140px;
+    height: 140px;
+    border: 3px solid #888;
+}
+
 .inner-display-border-circle {
-    position: absolute;
     width: 141px;
     height: 141px;
-    border-radius: 50%;
     border: 5px solid #23FCFE;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    z-index: 1;
     animation: rotate 3s infinite linear;
+}
+
+.small-circle,
+.small-circle2 {
+    top: 16px;
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .small-circle {
-    position: absolute;
-    top: 16px;
     left: 45px;
-    width: 25px;
-    height: 25px;
     background-image: url('../images/roda.png');
-    background-size: cover;
-    background-repeat: no-repeat;
     animation: rotate 3s infinite linear;
-    z-index: 2;
 }
 
 .small-circle2 {
-    position: absolute;
-    top: 16px;
     left: 69px;
-    width: 25px;
-    height: 25px;
     background-image: url('../images/roda1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
     animation: rotateLeft 3s infinite linear;
-    z-index: 3;
 }
 
 .keypad {
@@ -245,11 +239,8 @@ button {
     border-radius: 10px;
     width: 350px;
     position: relative;
-    /* top: -40px; */
     z-index: 10;
 }
-
-
 
 
 
@@ -298,7 +289,6 @@ button {
     linear-gradient(to bottom left ,var(--blue)) bottom left, rgba(54, 102, 197, 0.1);
     background-size: 15px 19px;
     background-repeat: no-repeat;
-    /* color: rgba(75, 130, 212, 0.9); */
     color: #007BFF;
     text-shadow:
           0 0 10px rgba(0, 123, 255, .7),
@@ -329,7 +319,19 @@ button {
     }
 
 /* media queries */
-@media (min-width: 43rem) {
+@media (min-width: 43rem) and (orientation: portrait){
+    body {
+        color: red;
+    }
+    .main {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
+
+    .ui-container {
+        gap: 4rem;
+    }
 
 .ui-interface {
     width: 360px;
@@ -337,34 +339,6 @@ button {
     margin-top: 1rem;
 }
 
-.display {
-    width: 200px;
-    height: 60px;
-    border: 2px solid var(--primary-dark);
-    background-color: #053544;
-    padding-right: .7rem;
-}
-
-.big-calc {
-    font-size: 1.36rem;
-    height: 30px;
-    margin-bottom: 4px;
-}
-.small-calc {
-    color: rgba(20, 25, 25, .8);
-    font-size: .7rem;
-    height: 25px;
-    margin-top: 4px;
-}
-
-.display-shadow {
-    position: absolute;
-    width: 215px;
-    height: 70px;
-    background-color: #001;
-    z-index: 2;
-    border-radius: 20px;
-}
 
 .outer-circle {
     width: 380px;
@@ -430,7 +404,6 @@ button {
     padding: 1rem;
     place-items: center;
     width: 550px;
-    top: -60px;
 }
 
 .keys {
@@ -447,11 +420,16 @@ button {
 
 }
 /* mobiles in landscape mode */
-@media (min-width: 43rem) and (max-height: 450px) {
+@media (min-width: 40rem) and (max-height: 500px) {
+    .main {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
     .ui-container {
         flex-direction: row;
-        margin: 0;
-        max-width: none;
+        justify-content: space-around;
+        width: 100%;
     }
 
     .keypad {
@@ -462,15 +440,23 @@ button {
 
 @media (min-width: 62rem) {
 
+    .main {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
+
     .ui-container {
+        height: 600px;
         flex-direction: row;
-        max-width: none;
+        justify-content: space-around;
+        width: 100%;
     }
 
     .display {
         height: 80px;
     }
-    
+
     .big-calc {
         font-size: 1.46rem;
     }
@@ -528,42 +514,22 @@ button {
 
     .keypad {
         gap: 1rem;
-        width: 450px;
-        top: 0px;
     }
 
 }
 
 @media (min-width: 82rem) {
-    body {
-        color: white;
-    }
 
     .ui-container {
-        background-image: url('../images/hud-frame.png');
+        background-image: url('../images/hud-frame-ui.png');
         background-repeat: no-repeat;
         background-size: contain;
-        background-color: #0ff;
         align-items: center;
-    }
-    
-    .ui-interface {
-       
-    }
-
-    .display {
-        height: 80px;
-    }
-    
-    .big-calc {
-        font-size: 1.46rem;
-    }
-    .small-calc {
-        font-size: .9rem;
-    }
-
-    .display-shadow {
-        height: 90px;
+        height: 778px;
+        border-radius: 20px;
+        box-shadow:
+        inset -20px 0 130px #0ff,
+        0px 0 80px #0ff;
     }
 
     .outer-circle {
@@ -578,35 +544,50 @@ button {
         height: 22px;
     }
 
+
     .outer-transparent-circle {
-        width: 305px;
-        height: 305px;
+        width: 315px;
+        height: 315px;
     }
 
 
     .medium-inner-circle {
-        width: 260px;
-        height: 260px;
+        width: 270px;
+        height: 270px;
     }
 
     .small-inner-circle {
-        width: 230px;
-        height: 230px;
+        width: 240px;
+        height: 240px;
     }
 
     .smallest-inner-circle {
+        width: 210px;
+        height: 210px;
+    }
+
+    .inner-transparent-circle {
         width: 200px;
         height: 200px;
     }
 
-    .inner-transparent-circle {
-        width: 190px;
-        height: 190px;
+    .inner-display-border-circle {
+        width: 201px;
+        height: 201px;
     }
 
-    .inner-display-border-circle {
-        width: 191px;
-        height: 191px;
+    .small-circle {
+        left: 68px;
+    }
+    .small-circle,
+    .small-circle2 {
+        top: 22px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .small-circle2 {
+        left: 99px;
     }
 
 
