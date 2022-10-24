@@ -140,8 +140,10 @@ function setOperator(operator) {
 function calculate() {
     if(currentOperator === null || shouldResetScreen) return;
     if(currentOperator === '/' && currentNumber.textContent === '0') {
-        currentNumber.textContent = `LoL`;
-        return;
+        let audio = new Audio('assets/not-compute.mp3');
+        audio.play();
+        currentNumber.textContent = `o.O`;
+        reset()
     }
     secondNumber = currentNumber.textContent;
     secondNumber = secondNumber.split(',').join('');

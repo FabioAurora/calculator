@@ -35,7 +35,8 @@ button {
 }
 
 .main {
-    max-width: 900px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .operator {
@@ -314,6 +315,213 @@ button {
     transform: scale(1.1);
     }
 
+/* media queries */
+@media (min-width: 43rem) {
+
+.ui-interface {
+    width: 360px;
+    height: 360px;
+    margin-top: 1rem;
+}
+
+.display {
+    width: 200px;
+    height: 60px;
+    border: 2px solid var(--primary-dark);
+    background-color: #053544;
+    padding-right: .7rem;
+}
+
+.big-calc {
+    font-size: 1.36rem;
+    height: 30px;
+    margin-bottom: 4px;
+}
+.small-calc {
+    color: rgba(20, 25, 25, .8);
+    font-size: .7rem;
+    height: 25px;
+    margin-top: 4px;
+}
+
+.display-shadow {
+    position: absolute;
+    width: 215px;
+    height: 70px;
+    background-color: #001;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+.outer-circle {
+    width: 380px;
+    height: 380px;
+}
+
+
+.cross1,
+.cross2 {
+    width: 380px;
+    height: 18px;
+}
+
+.outer-transparent-circle {
+    width: 275px;
+    height: 275px;
+}
+
+
+.medium-inner-circle {
+    width: 230px;
+    height: 230px;
+}
+
+.small-inner-circle {
+    width: 200px;
+    height: 200px;
+}
+
+.smallest-inner-circle {
+    width: 170px;
+    height: 170px;
+}
+
+.inner-transparent-circle {
+    width: 160px;
+    height: 160px;
+}
+
+.inner-display-border-circle {
+    width: 161px;
+    height: 161px;
+}
+
+.small-circle {
+    left: 55px;
+}
+.small-circle,
+.small-circle2 {
+    top: 20px;
+    width: 28px;
+    height: 28px;
+}
+
+.small-circle2 {
+    left: 79px;
+}
+
+
+
+.keypad {
+    gap: 2rem;
+    padding: 1rem;
+    place-items: center;
+    width: 550px;
+    top: -60px;
+}
+
+.keys {
+    width: 70px;
+    height: 50px;
+}
+
+.btn0 {
+    width: 190px;
+}
+.btnEqual {
+    height: 136px;
+}
+
+}
+/* mobiles in landscape mode */
+@media (min-width: 43rem) and (max-height: 450px) {
+    .ui-container {
+        flex-direction: row;
+        margin: 0;
+        max-width: none;
+    }
+
+    .keypad {
+        top: 0;
+    }
+
+}
+
+@media (min-width: 62rem) {
+
+    .ui-container {
+        flex-direction: row;
+        max-width: none;
+    }
+
+    .display {
+        height: 80px;
+    }
+    
+    .big-calc {
+        font-size: 1.46rem;
+    }
+    .small-calc {
+        font-size: .9rem;
+    }
+
+    .display-shadow {
+        height: 90px;
+    }
+
+    .outer-circle {
+        width: 420px;
+        height: 420px;
+    }
+
+
+    .cross1,
+    .cross2 {
+        width: 420px;
+        height: 20px;
+    }
+
+    .outer-transparent-circle {
+        width: 295px;
+        height: 295px;
+    }
+
+
+    .medium-inner-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .small-inner-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .smallest-inner-circle {
+        width: 190px;
+        height: 190px;
+    }
+
+    .inner-transparent-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    .inner-display-border-circle {
+        width: 181px;
+        height: 181px;
+    }
+
+
+    .keypad {
+        gap: 1rem;
+        width: 450px;
+        top: 0px;
+    }
+
+}
+
+/* Keyframes */
 
 @keyframes rotate {
     from {
