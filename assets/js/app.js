@@ -9,10 +9,10 @@ const clearButton = document.querySelector('#clearButton');
 const BACKSPACE_BUTTON = document.querySelector('#backspaceBtn');
 const DECIMAL_BUTTON =  document.querySelector('#decimalBtn');
 const OUTER_CIRCLE = document.querySelector('#outerCircle');
+const DISPLAY = document.querySelector('#display');
 
-equalsButton.addEventListener('click', () => {
-    calculate();
-});
+equalsButton.addEventListener('click', calculate);
+
 clearButton.addEventListener('click', clearAll);
 
 BACKSPACE_BUTTON.addEventListener('click', clearLastNumber);
@@ -32,6 +32,7 @@ function clearAll() {
     calculationDisplay.textContent = '';
     currentOperator = null;
     OUTER_CIRCLE.classList.remove('not-compute');
+    DISPLAY.setAttribute('style', 'animation: neon 1s  forwards;');
 }
 
 function clearLastNumber() {
@@ -41,6 +42,8 @@ function clearLastNumber() {
         return;
     }
     currentNumber.textContent = currentNumber.textContent.slice(0, -1);
+    OUTER_CIRCLE.classList.remove('not-compute');
+    DISPLAY.setAttribute('style', 'animation: neon 1s  forwards;');
 }
 
 function setDecimal() {
@@ -49,6 +52,8 @@ function setDecimal() {
         currentNumber.textContent === '0';
     }else if(currentNumber.textContent.includes('.')) return;
     currentNumber.textContent += '.';
+    OUTER_CIRCLE.classList.remove('not-compute');
+    DISPLAY.setAttribute('style', 'animation: neon 1s  forwards;');
 }
 
 /* calculator project */
@@ -126,6 +131,7 @@ function addNumber(number) {
          resetCalc();
         }
         OUTER_CIRCLE.classList.remove('not-compute');
+        DISPLAY.setAttribute('style', 'animation: neon 1s  forwards;');
     }
 }
 
@@ -138,6 +144,8 @@ function setOperator(operator) {
     currentOperator = operator;
     calculationDisplay.textContent = `${firstNumber} ${currentOperator}`;
     shouldResetScreen = true;
+    OUTER_CIRCLE.classList.remove('not-compute');
+    DISPLAY.setAttribute('style', 'animation: neon 1s  forwards;');
 }
 
 function calculate() {
@@ -146,6 +154,7 @@ function calculate() {
         let audio = new Audio('assets/not-compute.mp3');
         audio.play();
         OUTER_CIRCLE.classList.add('not-compute');
+        DISPLAY.setAttribute('style', 'animation: neonRed 2s  forwards;');
         currentNumber.textContent = `o.O`;
         reset()
     }
