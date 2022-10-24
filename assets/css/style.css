@@ -43,6 +43,7 @@ body {
     font: 900;
 }
 
+
 img {
     width: 100%;
 }
@@ -317,6 +318,20 @@ button {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     }
+
+.footer {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+    font-size: 1.225rem;
+}
+
+.instagram {
+    width: 20px;
+}
 
 /* media queries */
 @media (min-width: 43rem) and (orientation: portrait){

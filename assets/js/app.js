@@ -11,6 +11,7 @@ const BACKSPACE_BUTTON = document.querySelector('#backspaceBtn');
 const DECIMAL_BUTTON =  document.querySelector('#decimalBtn');
 const OUTER_CIRCLE = document.querySelector('#outerCircle');
 const DISPLAY = document.querySelector('#display');
+const DATE = document.querySelector('#date');
 
 /* Buttons event listeners */
 //Number Buttons adding the button values to the addNumber function
@@ -235,5 +236,9 @@ function getKeyboardInput(event) {
             break;
     }
 }
+
+/* date section */
+const currentYear = new Date().getFullYear();
+DATE.textContent = currentYear;
 
 window.addEventListener('keydown', getKeyboardInput);
